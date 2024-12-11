@@ -1,40 +1,12 @@
-/*
-    Mobile (<768px)---------------------------------
-    fixture                          sm
-        # of columns -               4
-        # gutters -                  20px
-        # margin -                   5px
-        # container-size -           100%-10px 
-
-     Tablet (>768px)---------------------------------
-     fixture                         md
-        # of columns -               12
-        # gutters -                  20px
-        # margin -                   30px
-        # container-size -           100% - 60px 
-        # max-container-size         960px
-
-     Desktop (>1200px)---------------------------------
-     fixture                         lg
-        # of columns -               12
-        # gutters -                  20px
-        # unit -                     75px
-        # margin -                   auto
-        # container-size -           1140px
-        # max-container-size         1140px
-*/
-
 $gutter: 20px;
 
 $sm-columns: 4;
 $sm-margin: 5px;
 
-$md-breakpoint: 768px;
 $md-columns: 12;
 $md-margin: 30px;
 $md-max-container: 960px + $md-margin * 2;
 
-$lg-breakpoint: 1200px;
 $lg-unit: 75px;
 $lg-columns: 12;
 $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
@@ -59,7 +31,7 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
     }
   }
 
-  @media screen and (min-width: $md-breakpoint) {
+  @include responsive(T) {
     max-width: $md-max-container;
     padding: 0 $md-margin;
 
@@ -70,7 +42,7 @@ $lg-max-container: ($lg-unit + $gutter) * $lg-columns;
     }
   }
 
-  @media screen and (min-width: $lg-breakpoint) {
+  @include responsive(D) {
     max-width: $lg-max-container;
     padding: 0;
 
